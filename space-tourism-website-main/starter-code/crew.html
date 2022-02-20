@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+  <!-- Google-Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+      rel="stylesheet">
+
+ <link rel="stylesheet" href="styles.css">
+
+ <!-- SCRIPTS -->
+ <script type="module" src="index.js" defer></script>
+ <script type="module" src="nav.js" defer></script>
+ <script type="module" src="tabs.js" defer></script>
+
+  <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body class="crew">
+    <!-- HEADER -->
+    <header class="primary-header flex relative">
+      <!-- LOGO -->
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fill-rule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF"/><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"/></g></svg>
+      </div>
+      <!-- MOBILE BURGER BUTTON -->
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded = "false">
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <!-- NAVIGATION -->
+       <nav> 
+        <ul id="primary-navigation" class="primary-navigation underline-indicators flex ff-sans-cond" data-visible="false">
+  
+          <li>
+            <a href="./index.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">00</span>Home</a>
+          </li>
+  
+          <li>
+            <a href="./destination.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">01</span>Destination</a>
+          </li>
+  
+          <li class="active">
+            <a href="./crew.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">02</span>Crew</a>
+          </li>
+  
+          <li>
+            <a href="./technology.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">03</span>Technology</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="grid-container grid-container--crew">
+      <h1 class="numbered-title text-white"><span class="fs-500">02</span> Meet your crew</h1>
+      <img src="./assets/crew/image-douglas-hurley.png" alt="Douglas Hurley">
+      
+      <!-- DOT-INDICATORS -->
+      <div class="flex dot-indicators" role="tablist"> 
+        <button aria-selected="true"  aria-controls="commander" class="" role="tab" tabindex="0"></button>
+        <button aria-selected="false" aria-controls="specialist"  class="" role="tab" tabindex="-1"></button>
+        <button aria-selected="false" aria-controls="pilot"  class="" role="tab" tabindex="-1"></button>
+        <button aria-selected="false" aria-controls="engineer"  class="" role="tab" tabindex="-1"></button>
+      </div>
+      
+      <article class="crew-article">
+        <header class="crew-article--header flow flow--space-small">
+          <h2 class="d-block fs-400 text-accent ff-serif uppercase" data-value="role">Commander</h2>
+          <p class="text-white fs-500 ff-serif uppercase letter-spacing-2" data-value="name">
+            Douglas Hurley
+          </p>
+        </header>
+       
+        <p class="lh-2 text-accent fs-400" data-value="bio">
+          Douglas Gerald Hurley is an American engineer, former Marine Corps pilot 
+          and former NASA astronaut. He launched into space for the third time as 
+          commander of Crew Dragon Demo-2.
+        </p>
+      </article>
+     
+    </main>
+  
+
+  
+  
+
+  
+</body>
+</html>

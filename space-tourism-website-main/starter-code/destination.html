@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+   <!-- Google-Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+       rel="stylesheet">
+  
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- SCRIPTS -->
+  <script type="module" src="index.js" defer></script> 
+  <script type="module" src="nav.js" defer></script>
+  <script type= "module" src="tabs.js" defer></script>
+  
+  <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body class="destination">
+   <!-- HEADER -->
+   <header class="primary-header flex relative">
+    <!-- LOGO -->
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fill-rule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF"/><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"/></g></svg>
+    </div>
+    <!-- MOBILE-BURGER BUTTON -->
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded = "false">
+      <span class="sr-only">Menu</span>
+    </button>
+    <!-- NAVIGATION -->
+     <nav> 
+      <ul id="primary-navigation" class="primary-navigation underline-indicators flex ff-sans-cond" data-visible="false">
+
+        <li tabindex="0">
+          <a href="./index.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">00</span>Home</a>
+        </li>
+
+        <li class="active" tabindex="-1">
+          <a href="./destination.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">01</span>Destination</a>
+        </li>
+
+        <li  tabindex="-1">
+          <a href="./crew.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">02</span>Crew</a>
+        </li>
+
+        <li  tabindex="-1">
+          <a href="./technology.html" class="uppercase text-white letter-spacing-2" id=""><span aria-hidden="true">03</span>Technology</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+   <!-- MAIN CONTENT -->
+  <main id="main" class="grid-container grid-container--destination">
+
+    <h1 class="numbered-title uppercase letter-spacing-2 ff-sans-cond text-white">
+      <span aria-hidden="true">01</span>Pick your destination
+    </h1>
+
+    <img src="./assets/destination/image-moon.png" alt="moon.png">
+
+    <!-- TAB-LIST -->
+    <div class="tab-list flex  underline-indicators" role="tablist" aria-label="destination list">
+
+    <button class="ff-sans-cond text-accent uppercase letter-spacing-2" role="tab" aria-selected="true" aria-controls="moon-tab" tabindex="0">Moon</button>
+
+    <button class="ff-sans-cond text-accent uppercase letter-spacing-2" role="tab" aria-selected="false" aria-controls="mars-tab" tabindex="-1">Mars</button>
+
+    <button class="ff-sans-cond text-accent uppercase letter-spacing-2" role="tab" aria-selected="false" aria-controls="europa-tab" tabindex="-1">Europa</button>
+
+    <button class="ff-sans-cond text-accent uppercase letter-spacing-2" role="tab" aria-selected="false" aria-controls="titan-tab" tabindex="-1">Titan</button>
+    
+    </div>
+
+    <!-- ARTICLE -->
+    <article class="destination-info">
+      
+      <h2 class="fs-800 text-white ff-serif uppercase letter-spacing-1" data-value="name">Moon</h2>
+      <p class="text-accent fs-400" data-value="description"> See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
+        regain perspective and come back refreshed. While you’re there, take in some history 
+        by visiting the Luna 2 and Apollo 11 landing sites.
+      </p>
+
+      <div class="flex destination-meta">
+        <div class="text-center">
+          <h3 class="text-accent ff-sans-cond letter-spacing-2 uppercase">Avg. distance</h3>
+          <p class="text-white  ff-serif uppercase" data-value="distance">384,400 km</p> 
+        </div>
+        <div>
+          <h3 class="text-accent ff-sans-cond letter-spacing-2 uppercase">Est. travel time</h3>
+          <p class="text-white text-center ff-serif uppercase" data-value="travel-time">3 days</p> 
+        </div>
+
+      </div>
+    </article>
+    
+  </main>
+</body>
+</html>

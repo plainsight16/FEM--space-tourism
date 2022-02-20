@@ -1,4 +1,4 @@
-import {jsonData} from "./jsonData.js";
+
 
 const navToggle = document.querySelector(".mobile-nav-toggle");
 const nav = document.querySelector(".primary-navigation");
@@ -12,4 +12,3 @@ navToggle.addEventListener("click", ()=>{
         nav.setAttribute("data-visible", false);
     }
 });
-console.log(jsonData);

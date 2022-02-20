@@ -10,7 +10,7 @@
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
-    --fs-500: 1.75rem;
+    --fs-500: 1rem;
     --fs-400: 0.9375rem;
     --fs-300: 1rem;
     --fs-200: 0.875rem;
@@ -28,6 +28,7 @@
         --fs-800: 5rem;
         --fs-700: 2.5rem;
         --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
         --fs-400: 1rem;
     }
 }
@@ -39,6 +40,7 @@
         --fs-800: 6.25rem;
         --fs-700: 3.5rem;
         --fs-600: 2rem;
+        --fs-500: 1.75rem;
         --fs-400: 1.125rem;
     }
 }
@@ -66,6 +68,7 @@ blockquote{
 
 button{
     outline:0;
+    background-color: transparent;
     border:none
 }
 
@@ -86,9 +89,6 @@ body{
 img,picture{
     max-width:100%;
     display:block;
-}
-button{
-    outline:0;
 }
 
 input,
@@ -120,7 +120,7 @@ a{
     }
 }
 
-/* UTILITIES */
+/* ----------------UTILITIES---------------------------- */
 
 .flex{
     display: flex;
@@ -146,6 +146,14 @@ a{
     max-width:80rem;
 
 }
+.flow > *:not(:first-child){
+    margin-top: var(--flow-space, 1rem);
+}
+.flow--space-small{
+    --flow-space: .75rem;
+}
+
+
 
 .sr-only {
     position: absolute;
@@ -190,6 +198,10 @@ a{
 .letter-spacing-3 { letter-spacing: 2.35px; } 
 
 .uppercase { text-transform: uppercase; }
+.text-center{ text-align: center; }
+.lh-2{
+    line-height: 2;
+}
 
 .fs-900 { font-size: var(--fs-900); }
 .fs-800 { font-size: var(--fs-800); }
@@ -208,6 +220,11 @@ a{
     line-height: 1.1;
 }
 
+/* --------END OF UTILITIES------------------- */
+
+
+/*-------------------- C O M P O N E N T S -------------- */
+
 .numbered-title {
     font-family: var(--ff-sans-cond);
     font-size: var(--fs-500);
@@ -220,8 +237,6 @@ a{
     font-weight: 700;
     color: hsl( var(--clr-white) / .25);
 }
-
-/*-----COMPONENTS------- */
 
 .large-button{
     display: inline-grid;
@@ -267,11 +282,22 @@ a{
     border-bottom : .2rem solid hsl( var(--clr-white) / 1);
 }
 
+
+.tab-list{
+    --gap: 2rem;
+}
+.tab-list > [aria-selected = "true"]{
+    color: hsl( var(--clr-white) / 1);
+    border-bottom: .2rem solid hsl( var(--clr-white) / 1);
+}
+
 .dot-indicators > *{
     cursor: pointer;
     aspect-ratio: 1;
     padding:.5em;
     background: hsl( var(--clr-white) / .25);
+    --gap: 2rem;
+    border-radius: 50%;
 }
 .dot-indicators > *:hover,
 .dot-indicators > *:focus{
@@ -282,6 +308,24 @@ a{
     background:hsl( var(--clr-white) / 1)
 }
 
+.numbered-indicators > *{
+    color: hsl( var(--clr-white) / 1);
+    cursor: pointer;
+    aspect-ratio: 1;
+    padding: 1em;
+    background: transparent;
+    border: 1px solid hsl( var(--clr-accent)/.25);
+    --gap: 1rem;
+    border-radius: 50%; 
+}
+.numbered-indicators >*:hover,
+.numbered-indicators > *:focus{
+    background: hsl( var(--clr-white) / .5);
+}
+.numbered-indicators > [aria-selected="true"]{
+    color: hsl( var(--clr-dark)/ 1);
+    background:hsl( var(--clr-white) / 1)
+}
 
 /* SKIP LINK */
 .skip-to-content{
@@ -295,6 +339,8 @@ a{
 .skip-to-content:focus{
     transform: translateY(0);
 }
+
+
 /* -----NAVIGATION----- */
 
 .primary-header {
@@ -389,7 +435,7 @@ a{
         display:block;
         border:0;
         position: absolute;
-        top:2rem;
+        top:3rem;
         right:1rem;
         background:no-repeat;
         background-image:url(./assets/shared/icon-hamburger.svg);
@@ -401,43 +447,226 @@ a{
         background-image: url(./assets/shared/icon-close.svg);
     }
 }
+/* ---------------------END OF C O M P O N E N T S------------------------ */
+
+
+/* ----------------------------LAYOUT-------------------------------- */
+
+/* ---LAYOUT - DESTINATION PAGE(MOBILE)---- */
+.grid-container--destination{
+    grid-template-areas:". title ."
+                        ". image ."
+                        ". tab-list ."
+                        ". article .";
+    row-gap: 2rem;  
+    padding-bottom: 4rem;    
+}
+.grid-container--destination > .numbered-title{
+    grid-area: title;
+}
+
+.grid-container--destination > img{
+    grid-area: image;
+    max-width: 60%;
+}
+.grid-container--destination > .tab-list{
+    grid-area: tab-list;
+}
+.grid-container--destination > .destination-info{
+    grid-area: article;
+}
+.destination-meta{
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top: 1px solid hsl( var(--clr-white) / .5);
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+.destination-meta p{
+    font-size: 1.75rem;
+}
+
+/*------ LAYOUT CREW-PAGE------ */
+.grid-container--crew{
+    grid-template-areas: ". title ."
+                         ". image ."
+                         ". dot-indicators ."
+                         ". article ."   ;
+    row-gap: 2rem;
+    padding-bottom: 4rem;
+}
+.grid-container--crew h1{
+    grid-area: title;
+}
+.grid-container--crew img{
+    max-width:60%;
+    grid-area: image;
+    border-bottom: 1px solid hsl( var(--clr-white) / .15);
+}
+.grid-container--crew > .dot-indicators{
+    grid-area: dot-indicators;
+}
+.grid-container--crew > article{
+    grid-area: article;
+}
+.crew-article > p{
+    margin-top: .75rem;
+}
 
 
 
-/* -----LAYOUT------ */
+/* TECHNOLOGY PAGE LAYOUT (MOBILE) */
+.grid-container--technology > .img-portrait{
+    display: none;
+}
+.grid-container--technology{
+    grid-template-areas: ". title ."
+                        ". image ."
+                        ". numbered-indicators ."
+                        ". article .";
+    padding-bottom:4rem;
+}
+.grid-container--technology > h1{
+    grid-area : title;
+}
+.grid-container--technology > .img-landscape{
+    grid-area: image;
+    grid-column: span 3;
+}
+.grid-container--technology > .numbered-indicators{
+    grid-area: numbered-indicators;
+}
+.grid-container--technology > article{
+    grid-area: article;
+}
+
+
+
+/*----- GENERAL-LAYOUT (MOBILE) ----- */
 .grid-container{
     display: grid;
     grid-template-columns: minmax(2rem, 1fr) minmax(0, 30rem) minmax(2rem, 1fr);
-    text-align:center;
+    text-align:center; 
     place-items: center;
 }
-.grid-container *{
+.grid-container p:not([class]){
     max-width: 50ch;
 }
 .grid-container > *{
     grid-column: 2;
 }
 
-/* MEDIA QUERY FOR LAYOUT */
+/* --------GENERAL - LAYOUT (TABLET)------- */
+
+@media (min-width:35em){
+    .numbered-title{
+        margin-top: 2rem;
+        justify-self: start;
+    }
+    .destination-meta{
+        flex-direction: row;
+    }
+    .grid-container--crew{
+        grid-template-areas: ". title ."
+                             ". article ."
+                             ". dot-indicators ."
+                             ". image ."   ;
+        padding-bottom: 0;
+    }
+    .grid-container--crew img{
+        max-width:100%;
+        grid-area: image;
+        border: none;
+    }
+}
+
+/* ------------ LAYOUT (DESKTOP) ----------- */
 @media (min-width:45em){
+
+    /* GENERAL LAYOUT (DESKTOP) */
     .grid-container{
         text-align:left;
         grid-template-columns: minmax(2em, 1fr) minmax(0, 40em) minmax(0,40em) minmax(2em, 1fr); 
         column-gap: var(--grid-gap, 2rem);
     }
-    .grid-container > *:first-child{
-        grid-column: 2;
-    }
-    .grid-container > *:last-child{
-        grid-column:3;
-    }
+
     .grid-container--home{
         align-items: end;
-        padding-bottom: max(6rem, 20vh);
-        
+        padding-bottom: max(6rem, 20vh);  
     }
+    .grid-container--home > *:first-child{
+        grid-column: 2;
+    }
+    .grid-container--home > *:last-child{
+        grid-column:3;
+    }
+
+
+    /*----- DESTINATION-LAYOUT (DESKTOP) ------ */
+    .grid-container--destination{
+        justify-items: start;
+        align-items: start;
+        grid-template-areas: ". title title ."
+                   ". image tab-list ."
+                   ". image article ." ;
+    }
+    .grid-container--destination > img{
+        max-width: 100%;
+        justify-self: center;
+    }
+    .destination-meta{
+        --gap: min(4vw, 6rem);
+        justify-content: flex-start;
+    }
+
+
+    /* -----CREW-LAYOUT (DESKTOP) ------ */
+    .grid-container--crew{
+        justify-items: start;
+        align-items: start;
+        grid-template-areas: ". title image ."
+                             ". article image ."
+                             ". dot-indicators image ."
+                                ;
+        row-gap: 4rem;
+
+    }
+    .grid-container--crew img{
+        justify-self: end;
+        align-self: end;
+    }
+
+
+
+    /* TECHNOLOGY PAGE LAYOUT (DESKTOP) */
+    .grid-container--technology > .img-landscape{
+        display: none;
+    }
+    
+    .grid-container--technology{
+        grid-template-columns: minmax(2em, 1fr) minmax(0, 10em) minmax(0,60em) minmax(0, 40em); ;
+        justify-items: center;
+        align-items: center;
+        grid-template-areas: ". title title ."
+                             ". numbered-indicators article image"
+                             ". numbered-indicators article image"
+                             ;
+    }
+    
+    .grid-container--technology > .img-portrait{
+        display: block;
+        grid-area: image;
+        width:100%;
+        height: 95%;
+    }
+    .grid-container--technology > .numbered-indicators{
+        flex-direction: column;
+    }
+    
+    
 }
 
+/* -------------END OF LAYOUT------------------------- */
 
 
 /* PAGE SPECIFICS -- BACKGROUND */
@@ -446,7 +675,7 @@ body{
     background-position: bottom center;
 }
 
-
+/*------- HOME-PAGE ---------*/
 .home{
     background-image: url("./assets/home/background-home-mobile.jpg");
 }
@@ -459,6 +688,57 @@ body{
 @media (min-width: 45em){
     .home{
         background-image: url("./assets/home/background-home-desktop.jpg");
+    }
+}
+
+/*------- DESTINATION-PAGE ---------*/
+.destination{
+    background-image: url("./assets/destination/background-destination-mobile.jpg")
+}
+@media(min-width: 35em){
+    .destination{
+        background-image: url("./assets/destination/background-destination-tablet.jpg");
+    }
+}
+@media(min-width: 45em){
+    .destination{
+        background-image: url("./assets/destination/background-destination-desktop.jpg");
+    }
+}
+
+/* ----CREW-PAGE-------- */
+.crew{
+    background-image: url("./assets/crew/background-crew-mobile.jpg");
+}
+
+.crew-article > header h2{
+    color:hsl( var(--clr-white) / .75);
+}
+@media (min-width:35em){
+    .crew{
+        background-position: center center;
+        background-image: url("./assets/crew/background-crew-tablet.jpg");
+    }
+}
+@media (min-width:45em){
+    .crew{
+        background-image: url("./assets/crew/background-crew-desktop.jpg");
+    }
+}
+
+/* -----TECHNOLOGY--PAGE------ */
+.technology{
+    background-image: url("./assets/technology/background-technology-mobile.jpg");
+}
+
+@media(min-width: 35em){
+    .technology{
+        background-image:url("./assets/technology/background-technology-tablet.jpg");
+    }
+}
+@media(min-width: 45em){
+    .technology{
+        background-image: url("./assets/technology/background-technology-desktop.jpg");
     }
 }
 
