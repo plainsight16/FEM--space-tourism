@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here]()
-- Live Site URL: [Add live site URL here](https://plainsight16.github.io/FEM--space-tourism/)
+- Solution URL: [Add solution URL here]
+- Live Site URL: [https://plainsight16.github.io/FEM--space-tourism/]
 
 ## My process
 
@@ -74,7 +74,7 @@ Also, more practice in css animations.
 
 ## Author
 
-- Website - [Timilehin Bakare](https://plainsight16.github.io/FEM--space-tourism/)
+- Website - [https://plainsight16.github.io/FEM--space-tourism/]()
 - Frontend Mentor - [@plainsight16](https://www.frontendmentor.io/profile/plainsight16)
 - Twitter - [@Adeniyibaks24](https://www.twitter.com/Adeniyibaks24)
 
